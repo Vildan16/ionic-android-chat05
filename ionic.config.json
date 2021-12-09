@@ -1,0 +1,7 @@
+{
+  "name": "lab03v6",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
