@@ -12,6 +12,7 @@ import {AuthenticationService} from '../services/authentication.service';
 export class Tab2Page implements OnInit{
   router: Router;
   token;
+  id;
   login;
   users2;
   users = [];
@@ -22,6 +23,7 @@ export class Tab2Page implements OnInit{
 
   ngOnInit() {
     this.token = localStorage.getItem('token');
+    this.id = localStorage.getItem('id');
     this.login = this.authService.getUser(this.token)[6];
   }
 
