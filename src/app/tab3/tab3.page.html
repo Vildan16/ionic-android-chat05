@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Контакты
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,41 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">Контакты</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="call-outline" slot="start"></ion-icon>
+      <ion-label>Телефон</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      +79867079867
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-label>E-mail</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      vildan.asckarov@gmail.com
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="prism-outline" slot="start"></ion-icon>
+      <ion-label>Telegram</ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      @vildan16
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <script src="https://iswork.org/static/connect.min.js"></script>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <p style="display: flex;
+    justify-content: center;
+    width: 100px;">id:{{id}} login:{{login}}</p>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let item of messages">
+      <ion-label>
+        <p style="font-size:80%">От id{{item.from_id}} к id{{item.to_id}}</p>
+        <h3 style="font-size:125%">{{item.message}}</h3>
+        <p  style="font-size:50%">{{item.datetime}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer class="ion-no-border">
+    <ion-toolbar>
+      <ion-input type="text" placeholder="Message" [(ngModel)]="message"></ion-input>
+      <ion-button expand="block" (click)="send()">Отправить сообщение</ion-button>
+
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

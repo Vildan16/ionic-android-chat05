@@ -1,0 +1,23 @@
+<ion-header xmlns="http://www.w3.org/1999/html">
+  <ion-toolbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form (ngSubmit)="login()" [formGroup]="credentials">
+    <div class="input-group">
+      <ion-item>
+        <ion-input placeholder="login" formControlName="login"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+
+    </div>
+    <ion-button type="submit" expand="block" [disabled]="!credentials.valid">Log in</ion-button>
+  </form>
+  <ion-button expand="block" shape="round" color="medium" (click)="toRegister()">Register</ion-button>
+</ion-content>

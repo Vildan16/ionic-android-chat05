@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Загрузка
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+
+  <h4>Загрузка из камеры</h4>
+  <button (click) = "takeSnap()">Сделать фото</button>
+  <form #uploadbase64 = "ngForm" (ngSubmit) = "onClickSubmitBase64(uploadbase64.value)" enctype="multipart/form-data">
+    <textarea class="baseInput" name="cameraImage" [(ngModel)]="cameraImage"></textarea>
+    <input type="submit" value="Send">
+  </form>
+
+  <h4>Загрузка фото</h4>
+  <form #upload = "ngForm" (ngSubmit) = "onClickSubmit()" enctype="multipart/form-data">
+    <input type='file' name='image' (change)="fileProgress($event)">
+    <input type="submit" value="Send">
+  </form>
+  <div ng-controller="imagesController" class="uploadImages">
+    <div *ngFor="let image of images">
+      <img src="{{ image.img }}" />
+    </div>
+  </div>
+</ion-content>
