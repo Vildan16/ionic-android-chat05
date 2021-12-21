@@ -41,6 +41,7 @@ export class LoginPage implements OnInit {
       async (res) => {
         await loading.dismiss();
         this.token = res;
+        localStorage.setItem('token', this.token);
         await this.router.navigateByUrl('/tabs', {replaceUrl: true, state: {token: this.token}});
       },
       async () => {

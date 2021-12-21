@@ -47,7 +47,6 @@ export class ChattingPage implements OnInit {
     channel = 'iswork:'+ channel;
     const subscription = centrifuge.subscribe(channel, message => {
       this.messages.push(message.data.event.message);
-      console.log(message.data.event.message);
     });
     centrifuge.setToken(tokenWebsocket);
     subscription.on('subscribe', () => {

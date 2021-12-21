@@ -32,8 +32,7 @@ export class Tab1Page implements OnInit{
    }
 
   async ngOnInit() {
-    this.token = this.router.getCurrentNavigation().extras.state.token;
-    localStorage.setItem('token', this.token);
+    this.token = localStorage.getItem('token');
     const loading = await this.loadingController.create();
     await loading.present();
 
