@@ -60,7 +60,7 @@ export class ChattingPage implements OnInit {
 
     const raw = JSON.stringify({token:'db1bc644-cb69-462c-a184-4212962b468c',
       channel:'b69179ad-42c3-4d30-b2d9-6a96e87b6777',message:{to_id: this.userto, message: this.message,
-        datetime: new Date(), from_id: this.id}});
+        datetime: new Date().toLocaleDateString(), from_id: this.id}});
 
     const requestOptions: RequestInit = {
       method: 'POST',

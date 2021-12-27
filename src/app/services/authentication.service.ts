@@ -10,32 +10,43 @@ export class AuthenticationService {
   token = '';
   users;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  login(credentials: {login; password}): Observable<any> {
+  login(credentials: { login; password }): Observable<any> {
     return this.http.post(`http://studentapi.myknitu.ru/auth/`, credentials).pipe(
       map((data: any) => data.token));
   }
 
-  register(credentials: {login; password}): Observable<any> {
+  register(credentials: { login; password }): Observable<any> {
     return this.http.post(`http://studentapi.myknitu.ru/register/`, credentials).pipe(
       map((data: any) => data.token));
   }
-  getUser(credentials: {token}): Observable<any> {
+
+  getUser(credentials: { token }): Observable<any> {
     return this.http.post(`http://studentapi.myknitu.ru/getuser/`, credentials).pipe(
       map((data: any) =>
         [data.id_user, data.img, data.family, data.vk, data.birthday, data.phonenumber, data.user, data.skype, data.login]));
   }
-  loadList(credentials: {token}): Observable<any> {
+
+  loadList(credentials: { token }): Observable<any> {
     return this.http.post(`http://studentapi.myknitu.ru/listusers/`, credentials).pipe(
       map((data: any) => data.users));
   }
-  loadDialog(credentials: {token; userto}): Observable<any> {
+
+  loadDialog(credentials: { token; userto }): Observable<any> {
     return this.http.post('http://studentapi.myknitu.ru/getdialog/', credentials).pipe(
       map((data: any) => data.messages));
   }
-  sendMessage(credentials: {token; userto; message}): Observable<any> {
+
+  sendMessage(credentials: { token; userto; message }): Observable<any> {
     return this.http.post('http://studentapi.myknitu.ru/sendmessage/', credentials).pipe(
+      map((data: any) => data.status));
+  }
+
+  pushEdits(credentials: { token; nameuser; family; birthday; phonenumber; vk; skype }): Observable<any> {
+    console.log(credentials);
+    return this.http.post('http://studentapi.myknitu.ru/userupdate/', credentials).pipe(
       map((data: any) => data.status));
   }
 }
